@@ -17,13 +17,22 @@ bool isAlternating(const std::vector<int>& numbers) {
 }
 
 int main() {
-    std::vector<std::vector<int>> matrix = {
-        {1, -2, 3, -4, 5},
-        {-1, 2, -3, 4, -5},
-        {-1, -2, -3, -4},
-        {1, 2, 3, 4, 5},
-        {-1, 2, -3, 4, -5}
-    };
+    int rows, cols;
+
+    std::cout << "Enter number of rows: ";
+    std::cin >> rows;
+
+    std::cout << "Enter number of columns: ";
+    std::cin >> cols;
+
+    std::vector<std::vector<int>> matrix(rows, std::vector<int>(cols));
+
+    for (int i = 0; i < rows; ++i) {
+        std::cout << "Enter numbers for row " << i + 1 << ": ";
+        for (int j = 0; j < cols; ++j) {
+            std::cin >> matrix[i][j];
+        }
+    }
 
     std::vector<bool> results;
 
@@ -34,8 +43,6 @@ int main() {
     for (size_t i = 0; i < results.size(); ++i) {
         std::cout << "Row " << i + 1 << ": " << (results[i] ? "true" : "false") << std::endl;
     }
-
-    results.clear();
 
     return 0;
 }
